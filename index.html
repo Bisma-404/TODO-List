@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1 class="app-title">TO DO LIST</h1>
+        </header>
+
+        <div class="stats-card">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value" id="total-tasks">0</div>
+                    <div class="stat-label">Total Tasks</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="completed-tasks">0</div>
+                    <div class="stat-label">Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="pending-tasks">0</div>
+                    <div class="stat-label">Pending</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="overdue-tasks">0</div>
+                    <div class="stat-label">Overdue</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <div class="task-input-group">
+                <input type="text" class="task-input" placeholder="What needs to be done?">
+                <input type="date" class="date-input">
+                <select class="priority-select">
+                    <option value="">Priority</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+                <button class="add-btn">
+                    <i class="bi bi-plus-lg"></i> Add Task
+                </button>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Tasks</button>
+                <button class="filter-btn" data-filter="pending">Pending</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+                <button class="filter-btn" data-filter="overdue">Overdue</button>
+            </div>
+            <input type="text" class="search-input" placeholder="Search tasks...">
+        </div>
+
+        <div class="todos-container">
+            <table class="todos-table">
+                <thead>
+                    <tr>
+                        <th width="40%">Task</th>
+                        <th width="15%">Priority</th>
+                        <th width="20%">Due Date</th>
+                        <th width="25%">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="todos-list">
+                    <tr class="no-tasks-row">
+                        <td colspan="4">
+                            <div class="no-tasks">
+                                <i class="bi bi-check2-circle" style="font-size: 2rem;"></i>
+                                <p>No tasks found. Add a task to get started!</p>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer class="app-footer">
+            <p>Made by Bisma Shahid</p>
+        </footer>
+    </div>
+
+    <div class="alert-message hide"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
