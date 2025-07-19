@@ -35,7 +35,7 @@ This To-Do List app is designed to improve productivity by offering:
    ```bash
    git clone https://github.com/your-username/todo-list-web-app.git
 2.Open the project folder and locate index.html.
-3. Run directly in your browser (double-click or open with Live Server in VS Code).
+3.Run directly in your browser (double-click or open with Live Server in VS Code).
 
 ---
 
