@@ -28,10 +28,13 @@ This To-Do List app is designed to improve productivity by offering:
 ✅ **Modern UI** – Styled with Bootstrap and icons for better UX.  
 
 ---
+
 ##  Try it out now
 https://bisma-404.github.io/TODO-List/
+
 ---
-## 🛠️ How to Run  
+
+ How to Run  
 
 1. **Clone or Download** this repository:  
    ```bash
