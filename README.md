@@ -4,6 +4,12 @@ A responsive, browser-based **task management system** built with **HTML, CSS, B
 
 ---
 
+## Preview
+
+![Expense Tracker Preview](image/website.png)
+
+---
+
 ## Overview  
 
 This To-Do List app is designed to improve productivity by offering:  
