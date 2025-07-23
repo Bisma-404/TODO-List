@@ -4,7 +4,6 @@ class TodoApp {
         this.currentFilter = 'all';
         this.searchQuery = '';
         
-        // DOM Elements
         this.dom = {
             taskInput: document.querySelector('.task-input'),
             dateInput: document.querySelector('.date-input'),
@@ -22,13 +21,10 @@ class TodoApp {
             },
             noTasksRow: document.querySelector('.no-tasks-row')
         };
-        
-        // Initialize the app
         this.init();
     }
     
     init() {
-        // Event listeners
         this.dom.addBtn.addEventListener('click', () => this.addTodo());
         this.dom.taskInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') this.addTodo();
@@ -47,8 +43,6 @@ class TodoApp {
             this.searchQuery = e.target.value.toLowerCase();
             this.renderTodos();
         });
-        
-        // Initial render
         this.updateStats();
         this.renderTodos();
     }
@@ -77,8 +71,6 @@ class TodoApp {
         this.updateStats();
         this.renderTodos();
         this.showAlert('Task added successfully', 'success');
-        
-        // Clear inputs
         this.dom.taskInput.value = '';
         this.dom.dateInput.value = '';
         this.dom.prioritySelect.value = '';
@@ -137,7 +129,6 @@ class TodoApp {
             this.dom.todosList.appendChild(todoRow);
         });
         
-        // Add event listeners to interactive elements
         document.querySelectorAll('.todo-checkbox').forEach(checkbox => {
             checkbox.addEventListener('change', (e) => {
                 this.toggleTodoStatus(e.target.dataset.id);
@@ -213,20 +204,16 @@ class TodoApp {
         const todo = this.todos.find(t => t.id === id);
         if (!todo) return;
         
-        // Fill the form with todo data
         this.dom.taskInput.value = todo.task;
         this.dom.dateInput.value = todo.dueDate || '';
         this.dom.prioritySelect.value = todo.priority;
         
-        // Change add button to save button
         this.dom.addBtn.innerHTML = '<i class="bi bi-check-lg"></i> Save Changes';
         
-        // Remove previous click event
         const newAddBtn = this.dom.addBtn.cloneNode(true);
         this.dom.addBtn.parentNode.replaceChild(newAddBtn, this.dom.addBtn);
         this.dom.addBtn = newAddBtn;
         
-        // Add save event
         this.dom.addBtn.addEventListener('click', () => {
             const updatedTask = this.dom.taskInput.value.trim();
             const updatedDate = this.dom.dateInput.value;
@@ -244,21 +231,16 @@ class TodoApp {
             this.updateStats();
             this.renderTodos();
             this.showAlert('Task updated successfully', 'success');
-            
-            // Reset form and button
             this.dom.taskInput.value = '';
             this.dom.dateInput.value = '';
             this.dom.prioritySelect.value = '';
             this.dom.addBtn.innerHTML = '<i class="bi bi-plus-lg"></i> Add Task';
-            
-            // Restore original add functionality
             const originalAddBtn = this.dom.addBtn.cloneNode(true);
             this.dom.addBtn.parentNode.replaceChild(originalAddBtn, this.dom.addBtn);
             this.dom.addBtn = originalAddBtn;
             this.dom.addBtn.addEventListener('click', () => this.addTodo());
         });
     }
-    
     deleteTodo(id) {
         if (confirm('Are you sure you want to delete this task?')) {
             this.todos = this.todos.filter(todo => todo.id !== id);
@@ -268,7 +250,6 @@ class TodoApp {
             this.showAlert('Task deleted successfully', 'success');
         }
     }
-    
     updateStats() {
         const today = new Date().toISOString().split('T')[0];
         
@@ -293,8 +274,6 @@ class TodoApp {
         }, 3000);
     }
 }
-
-// Initialize the app when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new TodoApp();
 });
